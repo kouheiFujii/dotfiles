@@ -25,4 +25,6 @@ alias sw="git switch"
 alias rt="git restore"
 alias push="git push origin"
 alias pull="git pull origin"
+alias checkout="git checkout"
+
 export PATH="$HOME/.nodenv/bin:$PATH"
