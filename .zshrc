@@ -1,7 +1,7 @@
 # mysql
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 
-# Go programing 
+# Go programing
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
