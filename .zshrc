@@ -33,6 +33,7 @@ alias st_lis="git stash list"
 alias st_ap="git stash apply"
 alias push="git push origin"
 alias pull="git pull origin"
+alias checkout="git checkout"
 
 # iTerm starship
 eval "$(starship init zsh)"
