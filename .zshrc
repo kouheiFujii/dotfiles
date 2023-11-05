@@ -1,21 +1,19 @@
-# mysql
-export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
-
-# Go programing
+export PATH="$HOME/.rbenv/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:/usr/local/protobuf/bin"
 eval "$(rbenv init -)"
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
 
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+# python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
 
-# alias:bundle
-alias be='bundle exec'
-alias bi='bundle install'
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 # alias:git
@@ -29,11 +27,46 @@ alias sw="git switch"
 alias rt="git restore"
 alias rb="git rebase"
 alias st="git stash"
-alias st_lis="git stash list"
-alias st_ap="git stash apply"
 alias push="git push origin"
 alias pull="git pull origin"
+alias pullrb="git pull --rebase origin"
+alias checkout="git checkout"
+alias re_so="git reset --soft HEAD^"
+alias re="git reset"
+alias sh="git show"
 
+# alias: commands
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias vz="vim ~/.zshrc"
+alias vsz="code ~/.zshrc" # vscode open
+alias cz="cat ~/.zshrc"
+alias sz="source ~/.zshrc"
+
+# alias: projects
+alias gi="cd ~/git"
+alias be="cd ~/git/backend"
+alias fe="cd ~/git/frontend"
+
+# alias: docker
+alias dstop_all="docker ps --format {{.ID}} | xargs docker stop"
+alias dp="docker ps"
+alias dimg="docker images"
+alias drmi="docker rmi"
+alias dcrm="docker container rm"
+
+# alias: docker compose
+alias dc="docker compose"
+alias dce="docker compose exec"
+
+dcup() {
+  docker compose up $@
+}
+
+dcrun() {
+  docker compose run --rm $@
+}
 # iTerm starship
 eval "$(starship init zsh)"
 
