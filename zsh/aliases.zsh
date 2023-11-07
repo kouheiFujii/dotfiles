@@ -27,19 +27,25 @@ alias sh="git show"
 
 alias reload="source ${DOTFILES}/.zshrc"
 
-#  projects
+# projects
 alias gi="cd ~/git"
 alias be="cd ~/git/backend"
 alias fe="cd ~/git/frontend"
 alias dot="cd ~/dotfiles"
 
-#  docker
+# docker
 alias dstop_all="docker ps --format {{.ID}} | xargs docker stop"
 alias dp="docker ps"
 alias dimg="docker images"
 alias drmi="docker rmi"
 alias dcrm="docker container rm"
 
-#  docker compose
+# docker compose
 alias dc="docker compose"
 alias dce="docker compose exec"
+
+# mysql
+alias mstart="mysql.server start"
+alias mstop="mysql.server stop"
+alias mrestart="mysql.server restart"
+alias mlogin="mysql -u root -p"
