@@ -22,6 +22,15 @@ dcup() {
 dcrun() {
   docker compose run --rm $@
 }
+
+dbash() {
+if [ $# -eq 1 ]; then
+  docker compose exec -it $1 /bin/bash
+else
+  echo "Sorry. Please enter one argument."
+fi
+}
+
 # iTerm starship
 eval "$(starship init zsh)"
 
