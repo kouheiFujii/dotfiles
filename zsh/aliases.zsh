@@ -28,6 +28,7 @@ alias sh="git show"
 alias vz="vim ${DOTFILES}/.zshrc"
 alias cz="cat ${DOTFILES}/.zshrc"
 alias reload="source ~/.zshrc"
+alias dot="cd ~/dotfiles"
 
 #  projects
 alias gi="cd ~/git"

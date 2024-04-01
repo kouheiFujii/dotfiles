@@ -5,6 +5,7 @@ export PATH="$PATH:/usr/local/protobuf/bin"
 eval "$(rbenv init -)"
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/homebrew/lib"
+export DOTFILES=$HOME/dotfiles
 
 # python
 export PYENV_ROOT="$HOME/.pyenv"
