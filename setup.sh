@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ln -sf ~/git/dotfiles/.pryrc ~/.pryrc
-ln -sf ~/git/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/git/dotfiles/.bundle/config ~/.bundle/config
+ln -sf $DOTFILES/.pryrc ~/.pryrc
+ln -sf $DOTFILES/.zshrc ~/.zshrc
+ln -sf $DOTFILES/.bundle/config ~/.bundle/config
