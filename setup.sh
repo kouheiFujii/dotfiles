@@ -1,5 +1,7 @@
 #!/bin/sh
 
-ln -sf $DOTFILES/.pryrc ~/.pryrc
-ln -sf $DOTFILES/.zshrc ~/.zshrc
-ln -sf $DOTFILES/.bundle/config ~/.bundle/config
+echo "Setting up your Mac..."
+
+ln -sf ~/git/dotfiles/.zshrc ~/.zshrc
+
+echo "Done. Reload your terminal."

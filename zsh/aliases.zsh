@@ -17,6 +17,7 @@ alias sw="git switch"
 alias rt="git restore"
 alias rb="git rebase"
 alias st="git stash"
+alias fe="git fetch"
 alias push="git push origin"
 alias pull="git pull origin"
 alias pullrb="git pull --rebase origin"
@@ -28,12 +29,12 @@ alias sh="git show"
 alias vz="vim ${DOTFILES}/.zshrc"
 alias cz="cat ${DOTFILES}/.zshrc"
 alias reload="source ~/.zshrc"
-alias dot="cd ~/dotfiles"
+alias dot="cd ${DOTFILES}"
 
 #  projects
 alias gi="cd ~/git"
-alias be="cd ~/git/backend"
-alias fe="cd ~/git/frontend"
+# alias be="cd ~/git/backend"
+# alias fe="cd ~/git/frontend"
 
 #  docker
 alias dstop_all="docker ps --format {{.ID}} | xargs docker stop"

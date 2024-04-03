@@ -1,1 +1,1 @@
-export DOTFILES=$HOME/dotfiles
+export DOTFILES=$HOME/git/dotfiles
