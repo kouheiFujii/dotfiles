@@ -27,6 +27,7 @@ alias re_so="git reset --soft HEAD^"
 alias re="git reset"
 alias sh="git show"
 alias cherrypick="git cherry-pick"
+alias rv="git revert"
 
 alias vz="vim ${DOTFILES}/.zshrc"
 alias cz="cat ${DOTFILES}/.zshrc"
