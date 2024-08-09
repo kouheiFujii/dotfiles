@@ -37,3 +37,9 @@ asdf install
 ```bash
 brew install asdf
 ```
+
+### android studio
+
+```bash
+brew install --cask android-studio
+```
