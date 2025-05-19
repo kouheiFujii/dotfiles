@@ -43,3 +43,9 @@ brew install asdf
 ```bash
 brew install --cask android-studio
 ```
+
+### orbstack
+
+```bash
+brew install --cask orbstack
+```
