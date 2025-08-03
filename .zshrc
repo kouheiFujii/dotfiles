@@ -2,6 +2,7 @@ zmodload zsh/zprof
 
 export PATH="$HOME/.asdf/installs/ruby/3.3.0/bin:$PATH"
 export DOTFILES=$HOME/git/dotfiles
+export PATH="/opt/homebrew/bin:$PATH"
 
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export CPATH="/usr/local/opt/mysql-client/include:$CPATH"
