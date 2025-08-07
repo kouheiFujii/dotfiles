@@ -38,14 +38,14 @@ asdf install
 brew install asdf
 ```
 
-### android studio
-
-```bash
-brew install --cask android-studio
-```
-
 ### orbstack
 
 ```bash
 brew install --cask orbstack
+```
+
+### uv
+
+```bash
+brew install uv
 ```
