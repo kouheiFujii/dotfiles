@@ -36,8 +36,6 @@ alias dot="cd ${DOTFILES}"
 
 #  projects
 alias gi="cd ~/git"
-# alias be="cd ~/git/backend"
-# alias fe="cd ~/git/frontend"
 
 #  docker
 alias dstop_all="docker ps --format {{.ID}} | xargs docker stop"
@@ -49,3 +47,6 @@ alias dcrm="docker container rm"
 #  docker compose
 alias dc="docker compose"
 alias dce="docker compose exec"
+
+# claude
+alias claude='SHELL=/bin/bash claude'
