@@ -50,3 +50,6 @@ alias dce="docker compose exec"
 
 # claude
 alias claude='SHELL=/bin/bash claude'
+
+# cursor
+alias cur-a="cursor-agent"
