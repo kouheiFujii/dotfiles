@@ -30,10 +30,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.asdf/installs/ruby/3.3.0/bin:$PATH"  # Ruby 3.3.0のパス
 export DOTFILES=$HOME/git/dotfiles                        # dotfilesディレクトリ
 export PATH="/opt/homebrew/bin:$PATH"                     # Homebrewのパス
-export PATH="$HOME/.local/bin:$PATH"                      # ローカルバイナリのパス
 
 # asdf（バージョン管理ツール）を読み込み
 . $(brew --prefix asdf)/libexec/asdf.sh
+
+# asdf読み込み後にローカルバイナリを最優先に（claude code用）
+export PATH="$HOME/.local/bin:$PATH"
 
 # カスタムエイリアスと関数を読み込み
 [[ -f $DOTFILES/zsh/aliases.zsh ]] && source $DOTFILES/zsh/aliases.zsh

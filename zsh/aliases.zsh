@@ -50,6 +50,10 @@ alias dce="docker compose exec"
 
 # claude
 alias claude='SHELL=/bin/bash claude'
+alias shukkin='~/.claude-multiagent/scripts/shukkin.sh'
+alias taikin='~/.claude-multiagent/scripts/taikin.sh'
+alias shacho='tmux attach-session -t shacho'
+alias workers='tmux attach-session -t workers'
 
 # cursor
 alias cur-a="cursor-agent"

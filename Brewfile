@@ -12,6 +12,10 @@ brew "heroku"
 brew "newman"
 brew "k6"
 
+# 開発ツール
+brew "codex"
+brew "tmux"
+
 # フォント
 cask "font-meslo-lg-nerd-font"
 cask "font-fira-code-nerd-font"
