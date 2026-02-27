@@ -4,6 +4,8 @@ echo "Setting up your Mac..."
 
 # シンボリックリンクを作成
 ln -sf ~/git/dotfiles/.zshrc ~/.zshrc
+mkdir -p ~/.config/ghostty
+ln -sf ~/git/dotfiles/ghostty/config ~/.config/ghostty/config
 
 # iTerm2とzshプラグインのセットアップ
 echo "iTerm2とzshプラグインをセットアップ中..."
