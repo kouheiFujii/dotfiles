@@ -9,32 +9,39 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "shift shift": "file_finder::Toggle",
+      "ctrl-shift-e": "project_panel::ToggleFocus",
     },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
-
     },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "tab": "vim::Indent"
-    }
+      "tab": "vim::Indent",
+    },
   },
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "<": "vim::Outdent"
-    }
+      "<": "vim::Outdent",
+    },
   },
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
-      "ctrl-r": "project_panel::Rename"
-    }
-  }
+      "ctrl-r": "project_panel::Rename",
+    },
+  },
+  {
+    "context": "(Editor && extension == md)",
+    "bindings": {
+      "ctrl-v": "markdown::OpenPreview",
+      "ctrl-shift-v": "markdown::OpenPreviewToTheSide",
+    },
+  },
 ]
