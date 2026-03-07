@@ -44,4 +44,15 @@
       "ctrl-shift-v": "markdown::OpenPreviewToTheSide",
     },
   },
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-shift-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-t": "terminal_panel::ToggleFocus"
+    }
+  }
 ]
