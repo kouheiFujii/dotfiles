@@ -15,6 +15,7 @@ link_file() {
 link_file ~/git/dotfiles/.zshrc ~/.zshrc
 link_file ~/git/dotfiles/ghostty/config ~/.config/ghostty/config
 link_file ~/git/dotfiles/zed/keymap.json ~/.config/zed/keymap.json
+link_file ~/git/dotfiles/zed/settings.json ~/.config/zed/settings.json
 
 # iTerm2とzshプラグインのセットアップ
 echo "iTerm2とzshプラグインをセットアップ中..."
