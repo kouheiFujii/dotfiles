@@ -9,9 +9,6 @@ brew "gh"
 # 開発環境
 brew "asdf"
 brew "uv"
-brew "heroku"
-brew "newman"
-brew "k6"
 
 # 開発ツール
 brew "tmux"
