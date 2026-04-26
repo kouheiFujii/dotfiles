@@ -26,9 +26,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 # Oh My Zshを読み込み
 source $ZSH/oh-my-zsh.sh
 
-# ユーザー環境変数設定
-export PATH="$HOME/.asdf/installs/ruby/3.3.0/bin:$PATH"  # Ruby 3.3.0のパス
-export DOTFILES=$HOME/git/dotfiles                        # dotfilesディレクトリ
+# ユーザー環境変数設定（DOTFILESは.zshenvで定義済み）
 export PATH="/opt/homebrew/bin:$PATH"                     # Homebrewのパス
 
 # asdf（バージョン管理ツール）を読み込み
