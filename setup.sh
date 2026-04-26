@@ -32,7 +32,9 @@ link_file() {
   echo "Linked $src -> $dest"
 }
 
+link_file "$DOTFILES/.zshenv" "$HOME/.zshenv"
 link_file "$DOTFILES/.zshrc" "$HOME/.zshrc"
+link_file "$DOTFILES/.pryrc" "$HOME/.pryrc"
 link_file "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 link_file "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 link_file "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
