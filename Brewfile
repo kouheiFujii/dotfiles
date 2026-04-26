@@ -12,7 +12,6 @@ brew "uv"
 
 # 開発ツール
 brew "tmux"
-brew "1password-cli"
 
 # フォント
 cask "font-meslo-lg-nerd-font"

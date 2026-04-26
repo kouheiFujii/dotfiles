@@ -3,11 +3,7 @@
 # This won't be added again if you remove it.
 Include ~/.orbstack/ssh/config
 
-# 1Password SSH Agent
-# 鍵は1Password Vaultで管理し、Agent経由で利用する。
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
 # プライベート設定（dotfilesでは管理しない）
-# クライアント案件のホスト定義などはここに配置する。
+# クライアント案件のホスト定義や鍵指定などはここに配置する。
+# 鍵ファイル本体はGoogle Drive経由で同期する運用。
 Include ~/.ssh/config.d/*
