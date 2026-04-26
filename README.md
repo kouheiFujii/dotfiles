@@ -30,7 +30,7 @@ source ~/.zshrc
 ├── setup.sh                  # メインのセットアップスクリプト
 ├── zsh-setup.sh              # Oh My Zsh / p10k / zshプラグインの導入
 ├── ghostty/                  # Ghostty ターミナル設定
-├── ssh/                      # SSH config（1Password Agent 前提）
+├── ssh/                      # SSH config（公開可な共通設定のみ）
 ├── zed/                      # Zed エディタ設定
 └── zsh/                      # zsh エイリアス・関数
 ```
@@ -39,10 +39,14 @@ source ~/.zshrc
 
 `setup.sh` で再現できない部分は以下を手動対応する。
 
-### 1Password / SSH
-- [ ] 1Password にログインし、Settings → Developer → 「Use the SSH agent」を ON
-- [ ] CLI 連携も ON にしておく（`op` コマンド利用時）
-- [ ] クライアント案件等の機密ホスト定義を `~/.ssh/config.d/` 配下に配置（dotfiles では管理しない）
+### SSH 鍵 / config
+鍵本体は Google Drive で同期する運用。dotfiles には鍵を含めない。
+- [ ] Google Drive から SSH 鍵フォルダをダウンロードし `~/.ssh/` 配下に配置
+- [ ] パーミッションを設定（`chmod 700 ~/.ssh && chmod 600 ~/.ssh/<秘密鍵>`）
+- [ ] クライアント案件等の機密ホスト定義（`config.d/inations` 等）を `~/.ssh/config.d/` 配下に配置
+
+### 1Password
+- [ ] 1Password にログイン（パスワード管理用）
 
 ### Google Cloud SDK
 - [ ] `gcloud init` または `gcloud auth login` で再認証
