@@ -41,12 +41,11 @@ export PATH="$HOME/.local/bin:$PATH"
 [[ -f $DOTFILES/zsh/aliases.zsh ]] && source $DOTFILES/zsh/aliases.zsh
 [[ -f $DOTFILES/zsh/functions.zsh ]] && source $DOTFILES/zsh/functions.zsh
 
-# Google Cloud SDK設定
-if [ -f '/Users/kouhei/google-cloud-sdk/path.zsh.inc' ]; then
-  . '/Users/kouhei/google-cloud-sdk/path.zsh.inc'
-fi
-if [ -f '/Users/kouhei/google-cloud-sdk/completion.zsh.inc' ]; then
-  . '/Users/kouhei/google-cloud-sdk/completion.zsh.inc'
+# Google Cloud SDK設定（Homebrew Caskで管理）
+if command -v brew >/dev/null 2>&1; then
+  GCLOUD_SDK="$(brew --prefix)/share/google-cloud-sdk"
+  [[ -f "$GCLOUD_SDK/path.zsh.inc" ]] && source "$GCLOUD_SDK/path.zsh.inc"
+  [[ -f "$GCLOUD_SDK/completion.zsh.inc" ]] && source "$GCLOUD_SDK/completion.zsh.inc"
 fi
 
 # Powerlevel10k設定を読み込み
