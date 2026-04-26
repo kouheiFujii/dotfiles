@@ -37,6 +37,10 @@ link_file "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 link_file "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 link_file "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
 
+# SSH config（鍵は1Password、ホスト固有設定は ~/.ssh/config.d/ に配置）
+mkdir -p "$HOME/.ssh/config.d"
+link_file "$DOTFILES/ssh/config" "$HOME/.ssh/config"
+
 # zsh環境のセットアップ
 echo "zsh環境をセットアップ中..."
 if [ -f "$DOTFILES/zsh-setup.sh" ]; then
