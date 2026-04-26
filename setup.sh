@@ -37,12 +37,12 @@ link_file "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 link_file "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 link_file "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
 
-# iTerm2とzshプラグインのセットアップ
-echo "iTerm2とzshプラグインをセットアップ中..."
-if [ -f "$DOTFILES/iterm2-setup.sh" ]; then
-    bash "$DOTFILES/iterm2-setup.sh"
+# zsh環境のセットアップ
+echo "zsh環境をセットアップ中..."
+if [ -f "$DOTFILES/zsh-setup.sh" ]; then
+    bash "$DOTFILES/zsh-setup.sh"
 else
-    echo "⚠️ iterm2-setup.sh が見つかりません。手動でiTerm2をセットアップしてください。"
+    echo "⚠️ zsh-setup.sh が見つかりません。手動でzsh環境をセットアップしてください。"
 fi
 
 echo "Done. Reload your terminal."
