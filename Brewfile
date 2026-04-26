@@ -15,6 +15,7 @@ brew "k6"
 
 # 開発ツール
 brew "tmux"
+brew "1password-cli"
 
 # フォント
 cask "font-meslo-lg-nerd-font"
@@ -27,3 +28,4 @@ cask "dbeaver-community"
 cask "orbstack"
 cask "raycast"
 cask "stats"
+cask "1password"
