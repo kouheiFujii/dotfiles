@@ -40,10 +40,48 @@ source ~/.zshrc
 `setup.sh` で再現できない部分は以下を手動対応する。
 
 ### SSH 鍵 / config
-鍵本体は Google Drive で同期する運用。dotfiles には鍵を含めない。
-- [ ] Google Drive から SSH 鍵フォルダをダウンロードし `~/.ssh/` 配下に配置
-- [ ] パーミッションを設定（`chmod 700 ~/.ssh && chmod 600 ~/.ssh/<秘密鍵>`）
-- [ ] クライアント案件等の機密ホスト定義（`config.d/inations` 等）を `~/.ssh/config.d/` 配下に配置
+鍵本体は Google Drive 経由で旧PC→新PCへ移動する運用。dotfiles には鍵を含めない。
+セキュリティリスクを抑えるため、**Drive 上には移行のタイミングだけ置き、復元後に完全削除**する。
+
+#### 旧PC側（バックアップ作成）
+```bash
+# 1. アーカイブ作成
+tar czf /tmp/ssh-backup.tar.gz \
+  -C ~ \
+  .ssh/id_rsa \
+  .ssh/id_rsa.pub \
+  .ssh/aws_rsa_key \
+  .ssh/aws_rsa_key.pub \
+  .ssh/client \
+  .ssh/config.d
+
+# 2. Google Drive にアップロード
+open https://drive.google.com   # ブラウザで /tmp/ssh-backup.tar.gz を手動アップロード
+
+# 3. ローカルの一時ファイルを削除
+rm /tmp/ssh-backup.tar.gz
+```
+
+#### 新PC側（復元）
+```bash
+# 1. Google Drive から ssh-backup.tar.gz を ~/Downloads に DL
+
+# 2. 展開
+mkdir -p ~/.ssh
+tar xzf ~/Downloads/ssh-backup.tar.gz -C ~
+
+# 3. パーミッション設定
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa ~/.ssh/aws_rsa_key
+find ~/.ssh/client -type f ! -name "*.pub" -exec chmod 600 {} \;
+
+# 4. 一時ファイル削除
+rm ~/Downloads/ssh-backup.tar.gz
+```
+
+#### 動作確認後、Drive 側のクリーンアップ
+- [ ] Google Drive 上の `ssh-backup.tar.gz` を削除
+- [ ] **ゴミ箱からも完全削除**（30日後の自動削除を待たず即削除）
 
 ### 1Password
 - [ ] 1Password にログイン（パスワード管理用）
