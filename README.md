@@ -91,8 +91,8 @@ rm ~/Downloads/ssh-backup.tar.gz
 - [ ] 必要なら `gcloud config set project <PROJECT_ID>`
 
 ### ターミナル / フォント
-- [ ] iTerm2 / Ghostty でフォントを `MesloLGS NF` に設定
 - [ ] 必要に応じて `p10k configure` でプロンプトをカスタマイズ
+  - フォント (`MesloLGS NF`) は `ghostty/config` で自動設定済み
 
 ### asdf
 - [ ] `~/.tool-versions` を新PCに配置（または `asdf install` で各言語を入れ直し）

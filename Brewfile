@@ -17,7 +17,6 @@ brew "tmux"
 cask "font-meslo-lg-nerd-font"
 
 # アプリケーション
-cask "iterm2"
 cask "ghostty"
 cask "zed"
 cask "dbeaver-community"

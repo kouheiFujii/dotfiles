@@ -2,7 +2,7 @@
 
 # zsh環境セットアップスクリプト
 # Oh My Zsh、Powerlevel10kテーマ、zshプラグインを導入する。
-# iTerm2本体やフォントはBrewfileで管理しているためここでは扱わない。
+# ターミナル本体（Ghostty）やフォントはBrewfileで管理しているためここでは扱わない。
 
 set -e
 
@@ -45,6 +45,5 @@ echo ""
 echo "🎉 zsh環境のセットアップが完了しました！"
 echo ""
 echo "次の手順："
-echo "1. ターミナル（iTerm2 / Ghostty 等）でフォントを 'MesloLGS NF' に設定"
-echo "2. ターミナルを再起動するか source ~/.zshrc を実行"
-echo "3. 必要に応じて 'p10k configure' を実行してプロンプトを調整"
+echo "1. ターミナルを再起動するか source ~/.zshrc を実行"
+echo "2. 必要に応じて 'p10k configure' を実行してプロンプトを調整"
