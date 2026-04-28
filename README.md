@@ -45,8 +45,8 @@ source ~/.zshrc
 
 #### 旧PC側（バックアップ作成）
 ```bash
-# 1. アーカイブ作成
-tar czf /tmp/ssh-backup.tar.gz \
+# 1. アーカイブ作成（~/Downloads に置く。Finder/ブラウザから扱いやすいため）
+tar czf ~/Downloads/ssh-backup.tar.gz \
   -C ~ \
   .ssh/id_rsa \
   .ssh/id_rsa.pub \
@@ -56,10 +56,10 @@ tar czf /tmp/ssh-backup.tar.gz \
   .ssh/config.d
 
 # 2. Google Drive にアップロード
-open https://drive.google.com   # ブラウザで /tmp/ssh-backup.tar.gz を手動アップロード
+open https://drive.google.com   # ブラウザで ~/Downloads/ssh-backup.tar.gz を手動アップロード
 
 # 3. ローカルの一時ファイルを削除
-rm /tmp/ssh-backup.tar.gz
+rm ~/Downloads/ssh-backup.tar.gz
 ```
 
 #### 新PC側（復元）
