@@ -22,6 +22,14 @@ fi
 echo "📦 Brewfileのパッケージをインストール中..."
 brew bundle --file="$DOTFILES/Brewfile"
 
+# Claude Code CLIの導入（公式ネイティブインストーラ・自動更新対応）
+if ! command -v claude >/dev/null 2>&1; then
+  echo "🤖 Claude Code CLIをインストール中..."
+  curl -fsSL https://claude.ai/install.sh | bash
+else
+  echo "✅ Claude Code CLIはインストール済み"
+fi
+
 # シンボリックリンクを作成（既存ファイルがあれば上書き）
 link_file() {
   src="$1"
@@ -39,6 +47,7 @@ link_file "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 link_file "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 link_file "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
 link_file "$DOTFILES/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+link_file "$DOTFILES/claude/settings.json" "$HOME/.claude/settings.json"
 link_file "$DOTFILES/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
 # SSH config（鍵は1Password、ホスト固有設定は ~/.ssh/config.d/ に配置）

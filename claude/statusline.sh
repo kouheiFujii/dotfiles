@@ -1,7 +1,7 @@
 #!/bin/bash
 # Claude Code statusline
 # stdin から JSON を受け取り、1行で表示する
-#   🤖 モデル  🌿 ブランチ  #PR  🧠 使用トークン/上限 (n%)  💰 $cost
+#   📦 リポジトリ  🌿 ブランチ  #PR  🤖 モデル  🧠 使用トークン/上限 (n%)  💰 $cost
 
 set -u
 
@@ -10,14 +10,21 @@ get() { jq -r "$1 // empty" <<< "$input" 2>/dev/null; }
 
 MODEL=$(get '.model.display_name')
 CWD=$(get '.workspace.current_dir')
-USED_TOKENS=$(get '.context_window.total_input_tokens')
 CTX_SIZE=$(get '.context_window.context_window_size')
-USED_PCT=$(get '.context_window.used_percentage')
 COST=$(get '.cost.total_cost_usd')
 
-# Git ブランチ
+# /clear でリセットされるよう、累積値ではなく直近 API 呼び出しの current_usage から算出
+CU_INPUT=$(get '.context_window.current_usage.input_tokens')
+CU_CACHE_READ=$(get '.context_window.current_usage.cache_read_input_tokens')
+CU_CACHE_CREATE=$(get '.context_window.current_usage.cache_creation_input_tokens')
+USED_TOKENS=$(( ${CU_INPUT:-0} + ${CU_CACHE_READ:-0} + ${CU_CACHE_CREATE:-0} ))
+
+# Git リポジトリ名・ブランチ
+REPO=""
 BRANCH=""
 if [[ -n "${CWD:-}" ]]; then
+  REPO_ROOT=$(git -C "$CWD" rev-parse --show-toplevel 2>/dev/null || true)
+  [[ -n "$REPO_ROOT" ]] && REPO=$(basename "$REPO_ROOT")
   BRANCH=$(git -C "$CWD" branch --show-current 2>/dev/null || true)
 fi
 
@@ -56,7 +63,11 @@ fmt_tokens() {
 
 USED_FMT=$(fmt_tokens "${USED_TOKENS:-0}")
 SIZE_FMT=$(fmt_tokens "${CTX_SIZE:-0}")
-PCT_INT=$(printf '%.0f' "${USED_PCT:-0}" 2>/dev/null || echo 0)
+if (( ${CTX_SIZE:-0} > 0 )); then
+  PCT_INT=$(awk -v u="$USED_TOKENS" -v s="$CTX_SIZE" 'BEGIN { printf "%.0f", u*100/s }')
+else
+  PCT_INT=0
+fi
 COST_FMT=$(printf '%.2f' "${COST:-0}" 2>/dev/null || echo "0.00")
 
 # コンテキスト使用率に応じて色付け
@@ -68,9 +79,10 @@ DIM=$'\033[2m'
 BOLD=$'\033[1m'
 RESET=$'\033[0m'
 
-LINE="${BOLD}🤖 ${MODEL:-?}${RESET}"
-[[ -n "$BRANCH" ]] && LINE="${LINE}  🌿 ${BRANCH}"
-[[ -n "$PR"     ]] && LINE="${LINE}  ${DIM}#${PR}${RESET}"
-LINE="${LINE}  🧠 ${CTX_COLOR}${USED_FMT}/${SIZE_FMT} (${PCT_INT}%)${RESET}  💰 \$${COST_FMT}"
+LINE=""
+[[ -n "$REPO"   ]] && LINE="${LINE}${BOLD}📦 ${REPO}${RESET}  "
+[[ -n "$BRANCH" ]] && LINE="${LINE}🌿 ${BRANCH}  "
+[[ -n "$PR"     ]] && LINE="${LINE}${DIM}#${PR}${RESET}  "
+LINE="${LINE}🤖 ${MODEL:-?}  🧠 ${CTX_COLOR}${USED_FMT}/${SIZE_FMT} (${PCT_INT}%)${RESET}  💰 \$${COST_FMT}"
 
 printf '%s' "$LINE"
