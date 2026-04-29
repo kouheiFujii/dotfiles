@@ -9,9 +9,10 @@ set -e
 echo "🚀 zsh環境のセットアップを開始します..."
 
 # Oh My Zshがインストールされていない場合はインストール
+# KEEP_ZSHRC=yes で既存の ~/.zshrc（dotfilesへのシンボリックリンク）を上書きさせない
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "📥 Oh My Zshをインストール中..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+    KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 else
     echo "✅ Oh My Zshは既にインストールされています"
 fi

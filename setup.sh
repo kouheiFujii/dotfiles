@@ -51,4 +51,7 @@ else
     echo "⚠️ zsh-setup.sh が見つかりません。手動でzsh環境をセットアップしてください。"
 fi
 
+# Oh My Zsh等のインストーラーが ~/.zshrc を上書きするケースに備え、シンボリックリンクを再作成
+link_file "$DOTFILES/.zshrc" "$HOME/.zshrc"
+
 echo "Done. Reload your terminal."
