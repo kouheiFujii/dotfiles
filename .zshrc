@@ -29,8 +29,8 @@ source $ZSH/oh-my-zsh.sh
 # ユーザー環境変数設定（DOTFILESは.zshenvで定義済み）
 export PATH="/opt/homebrew/bin:$PATH"                     # Homebrewのパス
 
-# asdf（バージョン管理ツール）を読み込み
-. $(brew --prefix asdf)/libexec/asdf.sh
+# asdf（バージョン管理ツール、0.16+ Go版は asdf.sh ではなく shim ディレクトリを PATH に追加）
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # asdf読み込み後にローカルバイナリを最優先に（claude code用）
 export PATH="$HOME/.local/bin:$PATH"
