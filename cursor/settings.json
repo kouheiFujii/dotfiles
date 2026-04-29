@@ -14,8 +14,10 @@
       ],
       "after": [
         "<Esc>"
-      ],
-    },
+      ]
+    }
   ],
   "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Tokyo Night",
+  "scm.defaultViewMode": "tree"
 }
