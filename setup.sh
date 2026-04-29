@@ -38,6 +38,7 @@ link_file "$DOTFILES/.pryrc" "$HOME/.pryrc"
 link_file "$DOTFILES/ghostty/config" "$HOME/.config/ghostty/config"
 link_file "$DOTFILES/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 link_file "$DOTFILES/zed/settings.json" "$HOME/.config/zed/settings.json"
+link_file "$DOTFILES/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
 # SSH config（鍵は1Password、ホスト固有設定は ~/.ssh/config.d/ に配置）
 mkdir -p "$HOME/.ssh/config.d"
