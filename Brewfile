@@ -19,6 +19,7 @@ cask "font-meslo-lg-nerd-font"
 # アプリケーション
 cask "ghostty"
 cask "zed"
+cask "cursor"
 cask "dbeaver-community"
 cask "orbstack"
 cask "raycast"

@@ -29,6 +29,7 @@ source ~/.zshrc
 ├── Brewfile                  # Homebrew で管理するパッケージ一覧
 ├── setup.sh                  # メインのセットアップスクリプト
 ├── zsh-setup.sh              # Oh My Zsh / p10k / zshプラグインの導入
+├── cursor/                   # Cursor (VSCode フォーク) 設定
 ├── ghostty/                  # Ghostty ターミナル設定
 ├── ssh/                      # SSH config（公開可な共通設定のみ）
 ├── zed/                      # Zed エディタ設定
