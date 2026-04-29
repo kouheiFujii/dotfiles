@@ -12,6 +12,13 @@ window-save-state = always
 window-colorspace = "display-p3"
 
 # =========================
+# Transparency
+# =========================
+background-opacity = 0.85
+background-blur-radius = 20
+unfocused-split-opacity = 0.7
+
+# =========================
 # Breakline
 # =========================
 keybind = shift+enter=text:\x1b\r
