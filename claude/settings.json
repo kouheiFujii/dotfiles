@@ -1,6 +1,7 @@
 {
-  "theme": "dark-ansi",
-  "skipAutoPermissionPrompt": true,
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "defaultMode": "auto"
   },
@@ -9,8 +10,10 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  },
-  "teammateMode": "auto"
+  "theme": "dark-ansi",
+  "teammateMode": "auto",
+  "skipAutoPermissionPrompt": true,
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true
+  }
 }
