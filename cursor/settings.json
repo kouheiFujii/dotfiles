@@ -19,5 +19,7 @@
   ],
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Tokyo Night",
-  "scm.defaultViewMode": "tree"
+  "scm.defaultViewMode": "tree",
+  "csv.columnColorPalette": "warm",
+  "workbench.editor.enablePreview": false
 }
