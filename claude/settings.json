@@ -10,10 +10,26 @@
     "command": "~/.claude/statusline.sh",
     "padding": 0
   },
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
+  },
   "theme": "dark-ansi",
+  "autoCompactEnabled": false,
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
-  "enabledPlugins": {
-    "skill-creator@claude-plugins-official": true
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/session-summarize.sh",
+            "timeout": 120,
+            "async": true
+          }
+        ]
+      }
+    ]
   }
 }
