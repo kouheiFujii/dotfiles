@@ -7,8 +7,38 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  // AI 機能をすべて無効化（Agent Panel / Edit Prediction / Inline Assistant）。
+  // telemetry も off のため、コードが学習・収集に使われる経路はない。
+  "disable_ai": true,
+  "preview_tabs": {
+    "enabled": false,
+  },
+  "tab_size": 2,
+  // 拡張は settings.json で宣言管理し、起動時に自動インストールさせる。
+  // TS/React/Next.js/Tailwind/YAML/Shell は Zed 組み込みのため不要。
+  "auto_install_extensions": {
+    "html": true,
+    "ruby": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "terraform": true,
+    // Git 関連ファイルの構文ハイライト
+    "git-firefly": true,
+    // .env ファイルのハイライト
+    "env": true,
+    // Next.js などの MDX コンテンツ
+    "mdx": true,
+    // ログファイルの閲覧ハイライト
+    "log": true,
+  },
+  "base_keymap": "Cursor",
   "scrollbar": {
     "git_diff": true,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+    },
   },
   "git_panel": {
     "collapse_untracked_diff": false,
@@ -32,7 +62,7 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Catppuccin Mocha",
+    "dark": "Tokyo Night",
   },
   "autosave": {
     "after_delay": {
@@ -41,5 +71,33 @@
   },
   "vim": {
     "use_system_clipboard": "on_yank",
+  },
+  // 保存時に自動フォーマット。
+  "format_on_save": "on",
+  "languages": {
+    // JS/TS/React: ESLint の --fix を当ててから Prettier で整形。
+    "JavaScript": {
+      "formatter": [
+        { "code_actions": { "source.fixAll.eslint": true } },
+        "prettier",
+      ],
+    },
+    "TypeScript": {
+      "formatter": [
+        { "code_actions": { "source.fixAll.eslint": true } },
+        "prettier",
+      ],
+    },
+    "TSX": {
+      "formatter": [
+        { "code_actions": { "source.fixAll.eslint": true } },
+        "prettier",
+      ],
+    },
+    // Ruby: ruby-lsp のみ（solargraph / rubocop は無効）。
+    // Lint/フォーマッタは必要になったら rubocop を language_servers に追加する。
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "!solargraph", "!rubocop"],
+    },
   },
 }
